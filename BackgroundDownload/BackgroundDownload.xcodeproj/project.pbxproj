@@ -21,6 +21,7 @@
 		50D5E40218C86BDA00FC17FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50D5E3E418C86BDA00FC17FC /* UIKit.framework */; };
 		50D5E40A18C86BDA00FC17FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50D5E40818C86BDA00FC17FC /* InfoPlist.strings */; };
 		50D5E40C18C86BDA00FC17FC /* BackgroundDownloadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D5E40B18C86BDA00FC17FC /* BackgroundDownloadTests.m */; };
+		50D5E41718C8790800FC17FC /* WebViewAndDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D5E41618C8790700FC17FC /* WebViewAndDateCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		50D5E40718C86BDA00FC17FC /* BackgroundDownloadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BackgroundDownloadTests-Info.plist"; sourceTree = "<group>"; };
 		50D5E40918C86BDA00FC17FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		50D5E40B18C86BDA00FC17FC /* BackgroundDownloadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundDownloadTests.m; sourceTree = "<group>"; };
+		50D5E41518C8790700FC17FC /* WebViewAndDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewAndDateCell.h; path = ../WebViewAndDateCell.h; sourceTree = "<group>"; };
+		50D5E41618C8790700FC17FC /* WebViewAndDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewAndDateCell.m; path = ../WebViewAndDateCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,12 +115,8 @@
 		50D5E3E618C86BDA00FC17FC /* BackgroundDownload */ = {
 			isa = PBXGroup;
 			children = (
-				50D5E3EF18C86BDA00FC17FC /* AppDelegate.h */,
-				50D5E3F018C86BDA00FC17FC /* AppDelegate.m */,
-				50D5E3F218C86BDA00FC17FC /* Main.storyboard */,
-				50D5E3F518C86BDA00FC17FC /* ViewController.h */,
-				50D5E3F618C86BDA00FC17FC /* ViewController.m */,
-				50D5E3F818C86BDA00FC17FC /* Images.xcassets */,
+				50D5E41918C8792500FC17FC /* Classes */,
+				50D5E41818C8791300FC17FC /* Resources */,
 				50D5E3E718C86BDA00FC17FC /* Supporting Files */,
 			);
 			path = BackgroundDownload;
@@ -150,6 +149,52 @@
 				50D5E40818C86BDA00FC17FC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		50D5E41818C8791300FC17FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				50D5E3F818C86BDA00FC17FC /* Images.xcassets */,
+				50D5E3F218C86BDA00FC17FC /* Main.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		50D5E41918C8792500FC17FC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				50D5E41A18C8793200FC17FC /* App */,
+				50D5E41B18C8793C00FC17FC /* ViewControllers */,
+				50D5E41C18C8794900FC17FC /* TableViewCells */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		50D5E41A18C8793200FC17FC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				50D5E3EF18C86BDA00FC17FC /* AppDelegate.h */,
+				50D5E3F018C86BDA00FC17FC /* AppDelegate.m */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		50D5E41B18C8793C00FC17FC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				50D5E3F518C86BDA00FC17FC /* ViewController.h */,
+				50D5E3F618C86BDA00FC17FC /* ViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		50D5E41C18C8794900FC17FC /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				50D5E41518C8790700FC17FC /* WebViewAndDateCell.h */,
+				50D5E41618C8790700FC17FC /* WebViewAndDateCell.m */,
+			);
+			name = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50D5E3F718C86BDA00FC17FC /* ViewController.m in Sources */,
+				50D5E41718C8790800FC17FC /* WebViewAndDateCell.m in Sources */,
 				50D5E3F118C86BDA00FC17FC /* AppDelegate.m in Sources */,
 				50D5E3ED18C86BDA00FC17FC /* main.m in Sources */,
 			);
@@ -462,6 +508,7 @@
 				50D5E41118C86BDA00FC17FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		50D5E41218C86BDA00FC17FC /* Build configuration list for PBXNativeTarget "BackgroundDownloadTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +517,7 @@
 				50D5E41418C86BDA00FC17FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
