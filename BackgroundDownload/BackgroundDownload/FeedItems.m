@@ -48,8 +48,6 @@
   [[NSNotificationCenter defaultCenter] postNotificationName:@"NewItemAddedToBackgroundDownloadFeed" object:nil];
 
 
-  // Connect to server
-  // Any new content then save file add add new feedItem
   return NO;
 }
 

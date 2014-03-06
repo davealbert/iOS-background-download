@@ -7,6 +7,7 @@
 //
 
 #import "FeedItem.h"
+#import "FileHelper.h"
 
 @interface FeedItem() {
   NSDateFormatter *dateFormater;
@@ -38,7 +39,7 @@
 #pragma mark - Public FeedItem Methods
 
 - (NSData *)dataForWebview {
-  return [NSData dataWithContentsOfFile:[self pathForName:self.filename]];
+  return [NSData dataWithContentsOfFile:[FileHelper pathForName:self.filename]];
 }
 
 - (NSString *)timestampString {
@@ -58,14 +59,6 @@
   }
 
   return dateFormater;
-}
-
-#pragma mark - Helper Methods
-
-- (NSString *)pathForName:(NSString *)name {
-  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-  NSString *documentsDirectory = [paths objectAtIndex:0];
-  return [documentsDirectory stringByAppendingPathComponent:name];
 }
 
 #pragma mark - NSURL Connection Delegate Methods
@@ -88,8 +81,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
   // Save Data
-  // TODO: correct name
-  [receivedData writeToFile:[self pathForName:self.filename] atomically:YES];
+  [receivedData writeToFile:[FileHelper pathForName:self.filename] atomically:YES];
 }
 // and error occured
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
