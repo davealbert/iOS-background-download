@@ -38,6 +38,21 @@
   return self;
 }
 
+#pragma mark - Archiver Methods
+
+- (id)initWithCoder:(NSCoder *)decoder {
+  if (self = [super init]) {
+    self.timestamp = [decoder decodeObjectForKey:@"timestamp"];
+    self.filename = [decoder decodeObjectForKey:@"filename"];
+  }
+  return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+  [encoder encodeObject:self.timestamp forKey:@"timestamp"];
+  [encoder encodeObject:self.filename forKey:@"filename"];
+}
+
 #pragma mark - Public FeedItem Methods
 
 - (NSData *)dataForWebview {

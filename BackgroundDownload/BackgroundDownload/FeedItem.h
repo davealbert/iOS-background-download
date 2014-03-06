@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FeedItem : NSObject <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
+@interface FeedItem : NSObject <NSURLConnectionDataDelegate, NSURLConnectionDelegate, NSCoding>
 
 @property (nonatomic, strong) NSDate *timestamp;
 @property (nonatomic, strong) NSString *filename;

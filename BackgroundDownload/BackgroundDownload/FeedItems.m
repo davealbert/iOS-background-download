@@ -7,6 +7,7 @@
 //
 
 #import "FeedItems.h"
+#import "FileHelper.h"
 
 @interface FeedItems () {
   NSMutableArray *arrayOfFeeds;
@@ -35,11 +36,19 @@
 - (id)init {
   self = [super init];
   if (self) {
-    arrayOfFeeds = [[NSMutableArray alloc] init];
+    NSData *archiveData = [NSData dataWithContentsOfFile:[FileHelper pathForName:@"arrayOfFeeds.plist"]];
+    arrayOfFeeds = (NSMutableArray*)[NSKeyedUnarchiver unarchiveObjectWithData:archiveData];
+
+    if (!arrayOfFeeds) {
+      arrayOfFeeds = [[NSMutableArray alloc] init];
+    }
+
     [self anyNewItems];
   }
   return self;
 }
+
+#pragma mark - Public FeedItems Methods
 
 - (BOOL)anyNewItems {
   NSLog(@"anyNewItems");
@@ -48,6 +57,9 @@
     // Post notification once the webdata has been stored
     [[NSNotificationCenter defaultCenter] postNotificationName:@"NewItemAddedToBackgroundDownloadFeed" object:nil];
   }] atIndex:0];
+
+  NSData *arrayOfFeedsData = [NSKeyedArchiver archivedDataWithRootObject:arrayOfFeeds];
+  [arrayOfFeedsData writeToFile:[FileHelper pathForName:@"arrayOfFeeds.plist"] atomically:YES];
 
   return NO;
 }
