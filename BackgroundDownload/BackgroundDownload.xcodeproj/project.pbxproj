@@ -22,6 +22,7 @@
 		50D5E40A18C86BDA00FC17FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50D5E40818C86BDA00FC17FC /* InfoPlist.strings */; };
 		50D5E40C18C86BDA00FC17FC /* BackgroundDownloadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D5E40B18C86BDA00FC17FC /* BackgroundDownloadTests.m */; };
 		50D5E41718C8790800FC17FC /* WebViewAndDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D5E41618C8790700FC17FC /* WebViewAndDateCell.m */; };
+		50D5E41F18C87A7F00FC17FC /* feedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D5E41E18C87A7F00FC17FC /* feedTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		50D5E40B18C86BDA00FC17FC /* BackgroundDownloadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackgroundDownloadTests.m; sourceTree = "<group>"; };
 		50D5E41518C8790700FC17FC /* WebViewAndDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewAndDateCell.h; path = ../WebViewAndDateCell.h; sourceTree = "<group>"; };
 		50D5E41618C8790700FC17FC /* WebViewAndDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewAndDateCell.m; path = ../WebViewAndDateCell.m; sourceTree = "<group>"; };
+		50D5E41D18C87A7F00FC17FC /* feedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feedTableView.h; sourceTree = "<group>"; };
+		50D5E41E18C87A7F00FC17FC /* feedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = feedTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,7 @@
 				50D5E41A18C8793200FC17FC /* App */,
 				50D5E41B18C8793C00FC17FC /* ViewControllers */,
 				50D5E41C18C8794900FC17FC /* TableViewCells */,
+				50D5E42018C87A8300FC17FC /* TableViews */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -195,6 +199,15 @@
 				50D5E41618C8790700FC17FC /* WebViewAndDateCell.m */,
 			);
 			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		50D5E42018C87A8300FC17FC /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				50D5E41D18C87A7F00FC17FC /* feedTableView.h */,
+				50D5E41E18C87A7F00FC17FC /* feedTableView.m */,
+			);
+			name = TableViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +311,7 @@
 				50D5E41718C8790800FC17FC /* WebViewAndDateCell.m in Sources */,
 				50D5E3F118C86BDA00FC17FC /* AppDelegate.m in Sources */,
 				50D5E3ED18C86BDA00FC17FC /* main.m in Sources */,
+				50D5E41F18C87A7F00FC17FC /* feedTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
