@@ -8,6 +8,8 @@
 
 #import "feedTableView.h"
 #import "WebViewAndDateCell.h"
+#import "FeedItems.h"
+#import "FeedItem.h"
 
 @implementation feedTableView
 
@@ -34,21 +36,23 @@
 - (void)commonInit {
   [self setDelegate:self];
   [self setDataSource:self];
+
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:@"NewItemAddedToBackgroundDownloadFeed" object:nil];
 }
 
 #pragma mark - TableViewDataSource methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  // TODO: Correct numberOfRowsInSection
-  return 3;
+  return [[FeedItems sharedInstance] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   static NSString *WebViewAndDateCellIdentifier = @"WebViewAndDateCell";
   WebViewAndDateCell *cell = [tableView dequeueReusableCellWithIdentifier:WebViewAndDateCellIdentifier];
+  FeedItem *item = [[FeedItems sharedInstance] feedItemForRow:indexPath.row];
 
   // TODO: Correct cellForRowAtIndexPath
-  [cell.timestampLabel setText:@"foo"];
+  [cell.timestampLabel setText:[item timestampString]];
   return cell;
 }
 

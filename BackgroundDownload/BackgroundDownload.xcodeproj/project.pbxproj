@@ -23,6 +23,8 @@
 		50D5E40C18C86BDA00FC17FC /* BackgroundDownloadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D5E40B18C86BDA00FC17FC /* BackgroundDownloadTests.m */; };
 		50D5E41718C8790800FC17FC /* WebViewAndDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D5E41618C8790700FC17FC /* WebViewAndDateCell.m */; };
 		50D5E41F18C87A7F00FC17FC /* feedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D5E41E18C87A7F00FC17FC /* feedTableView.m */; };
+		50D5E42318C8825D00FC17FC /* FeedItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D5E42218C8825D00FC17FC /* FeedItems.m */; };
+		50D5E42718C883FC00FC17FC /* FeedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D5E42618C883FC00FC17FC /* FeedItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,10 @@
 		50D5E41618C8790700FC17FC /* WebViewAndDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewAndDateCell.m; path = ../WebViewAndDateCell.m; sourceTree = "<group>"; };
 		50D5E41D18C87A7F00FC17FC /* feedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feedTableView.h; sourceTree = "<group>"; };
 		50D5E41E18C87A7F00FC17FC /* feedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = feedTableView.m; sourceTree = "<group>"; };
+		50D5E42118C8825D00FC17FC /* FeedItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItems.h; sourceTree = "<group>"; };
+		50D5E42218C8825D00FC17FC /* FeedItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItems.m; sourceTree = "<group>"; };
+		50D5E42518C883FC00FC17FC /* FeedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedItem.h; sourceTree = "<group>"; };
+		50D5E42618C883FC00FC17FC /* FeedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +176,7 @@
 				50D5E41B18C8793C00FC17FC /* ViewControllers */,
 				50D5E41C18C8794900FC17FC /* TableViewCells */,
 				50D5E42018C87A8300FC17FC /* TableViews */,
+				50D5E42418C8826500FC17FC /* Object Classes */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -208,6 +215,17 @@
 				50D5E41E18C87A7F00FC17FC /* feedTableView.m */,
 			);
 			name = TableViews;
+			sourceTree = "<group>";
+		};
+		50D5E42418C8826500FC17FC /* Object Classes */ = {
+			isa = PBXGroup;
+			children = (
+				50D5E42118C8825D00FC17FC /* FeedItems.h */,
+				50D5E42218C8825D00FC17FC /* FeedItems.m */,
+				50D5E42518C883FC00FC17FC /* FeedItem.h */,
+				50D5E42618C883FC00FC17FC /* FeedItem.m */,
+			);
+			name = "Object Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,9 +325,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D5E42318C8825D00FC17FC /* FeedItems.m in Sources */,
 				50D5E3F718C86BDA00FC17FC /* ViewController.m in Sources */,
 				50D5E41718C8790800FC17FC /* WebViewAndDateCell.m in Sources */,
 				50D5E3F118C86BDA00FC17FC /* AppDelegate.m in Sources */,
+				50D5E42718C883FC00FC17FC /* FeedItem.m in Sources */,
 				50D5E3ED18C86BDA00FC17FC /* main.m in Sources */,
 				50D5E41F18C87A7F00FC17FC /* feedTableView.m in Sources */,
 			);
