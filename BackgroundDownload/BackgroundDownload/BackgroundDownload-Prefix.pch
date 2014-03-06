@@ -13,4 +13,8 @@
 #ifdef __OBJC__
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
+
+  // Change to your url
+  #define API_URL "http://localhost:9090"
+
 #endif

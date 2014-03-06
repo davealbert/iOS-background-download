@@ -10,6 +10,8 @@
 
 @interface FeedItem() {
   NSDateFormatter *dateFormater;
+  NSMutableData *receivedData;
+  NSStringEncoding encoding;
 }
 
 @end
@@ -19,10 +21,16 @@
 
 #pragma mark - Initialization Methods
 
-- (id)init {
+- (id)initWithNumber:(int)number {
   self = [super init];
   if (self) {
     self.timestamp = [NSDate date];
+    self.filename = [NSString stringWithFormat:@"File%d.dat", number];
+    NSURL *url = [NSURL URLWithString:@API_URL];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+
+    // We don't need a referance to the connection.
+    (void)[[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
   }
   return self;
 }
@@ -30,8 +38,7 @@
 #pragma mark - Public FeedItem Methods
 
 - (NSData *)dataForWebview {
-  // TODO: return data from web stored in self.filename
-  return nil;
+  return [NSData dataWithContentsOfFile:[self pathForName:self.filename]];
 }
 
 - (NSString *)timestampString {
@@ -52,5 +59,49 @@
 
   return dateFormater;
 }
+
+#pragma mark - Helper Methods
+
+- (NSString *)pathForName:(NSString *)name {
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *documentsDirectory = [paths objectAtIndex:0];
+  return [documentsDirectory stringByAppendingPathComponent:name];
+}
+
+#pragma mark - NSURL Connection Delegate Methods
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+  // every response could mean a redirect
+	receivedData = nil;
+  encoding = CFStringConvertEncodingToNSStringEncoding(NSASCIIStringEncoding);
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+	if (!receivedData) {
+    // no store yet, make one
+		receivedData = [[NSMutableData alloc] initWithData:data];
+  } else {
+    // append to previous chunks
+		[receivedData appendData:data];
+  }
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+  // Save Data
+  // TODO: correct name
+  [receivedData writeToFile:[self pathForName:self.filename] atomically:YES];
+}
+// and error occured
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	NSLog(@"Error retrieving data, %@", [error localizedDescription]);
+}
+
+// to deal with self-signed certificates
+- (BOOL)connection:(NSURLConnection *)connection
+canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+	return [protectionSpace.authenticationMethod
+          isEqualToString:NSURLAuthenticationMethodServerTrust];
+}
+
 
 @end

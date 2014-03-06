@@ -53,6 +53,12 @@
 
   // TODO: Correct cellForRowAtIndexPath
   [cell.timestampLabel setText:[item timestampString]];
+
+  [cell.webview loadData:[item dataForWebview]
+                MIMEType:@"text/html"
+        textEncodingName:@"UTF-8"
+                 baseURL:nil];
+
   return cell;
 }
 

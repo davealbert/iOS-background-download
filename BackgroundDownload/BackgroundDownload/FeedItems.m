@@ -36,19 +36,18 @@
   self = [super init];
   if (self) {
     arrayOfFeeds = [[NSMutableArray alloc] init];
-
-    for (int i=0; i<10; i++) {
-      dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)((i + 1.75) * NSEC_PER_SEC));
-      dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [arrayOfFeeds addObject:[[FeedItem alloc] init]];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"NewItemAddedToBackgroundDownloadFeed" object:nil];
-      });
-    }
+    [self anyNewItems];
   }
   return self;
 }
 
 - (BOOL)anyNewItems {
+  NSLog(@"anyNewItems");
+
+  [arrayOfFeeds insertObject:[[FeedItem alloc] initWithNumber:[arrayOfFeeds count] + 1] atIndex:0];
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"NewItemAddedToBackgroundDownloadFeed" object:nil];
+
+
   // Connect to server
   // Any new content then save file add add new feedItem
   return NO;

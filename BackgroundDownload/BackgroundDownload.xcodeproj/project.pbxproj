@@ -275,6 +275,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Dave Albert";
 				TargetAttributes = {
+					50D5E3DC18C86BDA00FC17FC = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					50D5E3FD18C86BDA00FC17FC = {
 						TestTargetID = 50D5E3DC18C86BDA00FC17FC;
 					};
