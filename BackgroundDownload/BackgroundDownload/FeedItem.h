@@ -16,6 +16,6 @@
 
 - (NSData *)dataForWebview;
 - (NSString *)timestampString;
-- (id)initWithNumber:(int)number;
+- (id)initWithNumber:(int)number withCallback:(void(^)(void))callback;
 
 @end

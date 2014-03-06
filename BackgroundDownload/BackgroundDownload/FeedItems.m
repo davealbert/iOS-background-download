@@ -44,9 +44,10 @@
 - (BOOL)anyNewItems {
   NSLog(@"anyNewItems");
 
-  [arrayOfFeeds insertObject:[[FeedItem alloc] initWithNumber:[arrayOfFeeds count] + 1] atIndex:0];
-  [[NSNotificationCenter defaultCenter] postNotificationName:@"NewItemAddedToBackgroundDownloadFeed" object:nil];
-
+  [arrayOfFeeds insertObject:[[FeedItem alloc] initWithNumber:[arrayOfFeeds count] + 1 withCallback:^{
+    // Post notification once the webdata has been stored
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NewItemAddedToBackgroundDownloadFeed" object:nil];
+  }] atIndex:0];
 
   return NO;
 }

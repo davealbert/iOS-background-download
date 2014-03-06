@@ -13,6 +13,7 @@
   NSDateFormatter *dateFormater;
   NSMutableData *receivedData;
   NSStringEncoding encoding;
+  id initComplete;
 }
 
 @end
@@ -22,9 +23,10 @@
 
 #pragma mark - Initialization Methods
 
-- (id)initWithNumber:(int)number {
+- (id)initWithNumber:(int)number withCallback:(void(^)(void))callback {
   self = [super init];
   if (self) {
+    initComplete = [callback copy];
     self.timestamp = [NSDate date];
     self.filename = [NSString stringWithFormat:@"File%d.dat", number];
     NSURL *url = [NSURL URLWithString:@API_URL];
@@ -55,7 +57,7 @@
 - (NSDateFormatter *)dateFormater {
   if (!dateFormater) {
     dateFormater = [[NSDateFormatter alloc] init];
-    [dateFormater setDateFormat: @"yyyy-MM-dd HH:mm:ss zzz"];
+    [dateFormater setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
   }
 
   return dateFormater;
@@ -82,8 +84,13 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
   // Save Data
   [receivedData writeToFile:[FileHelper pathForName:self.filename] atomically:YES];
+  if (initComplete) {
+    void(^completion)() = initComplete;
+    completion();
+  }
 }
-// and error occured
+
+// An error occured
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 	NSLog(@"Error retrieving data, %@", [error localizedDescription]);
 }
